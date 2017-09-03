@@ -1,0 +1,30 @@
+<app-navigacija></app-navigacija>
+<img src="../assets/images/backgroundLog.JPG" class="bg">
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-4 text-center"></div>
+    <div class="col-sm-4 text-center">
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+
+          <h3>PRIJAVA V PORTAL VEČ KOT PES </h3><br>
+          <div class="form-group">
+            <label for="mailInpt">Uporabniško ime: </label>
+            <input [(ngModel)]="uporabnik.uporIme" type="text" class="form-control" id="mailInpt" placeholder="Uporabniško ime ..." style="margin-left:10%; width:80%" required>
+          </div>
+          <div class="form-group">
+            <label for="passInpt">Geslo:</label>
+            <input [(ngModel)]="uporabnik.geslo" type="password" class="form-control" id="passInpt" placeholder="Geslo ..." style="margin-left:10%; width:80%" required>
+          </div>
+          <br>
+          <button (click)="onPrijava()" class="btn btn-success" style="width: 200px;">PRIJAVA</button>
+          <br><br>
+          <div class="alert alert-danger" role="alert" *ngIf="napaka">{{napaka}}</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center"></div>
+  </div>
+</div>

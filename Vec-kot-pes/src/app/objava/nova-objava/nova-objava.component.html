@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label for="slikaInpt">Slika: </label>
+  <input #slikaFile type="file" class="form-control" id="slikaInpt" name="slika" style="margin-left:10%; width:80%" required>
+</div>
+<div class="form-group">
+  <label for="opisInpt">Opis: </label>
+  <textarea [(ngModel)]="novaObjava.opis" class="form-control" id="opisInpt" style="margin-left:10%; width:80%" required></textarea>
+</div>
+<button (click)="onObjavi()" class="btn btn-success" style="width: 200px;">Objavi</button>

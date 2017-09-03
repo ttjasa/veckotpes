@@ -1,0 +1,25 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav" style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+      </div>
+    <div class="col-sm-6 text-left" style="background-color:white; padding-left:3%; padding-top:0.5%; border-color: #EEEEEE; border-width:1px; border-style: solid;">
+        <h2>KINOLOŠKA DRUŠTVA</h2>
+        <div class="media" *ngFor="let dru of drustva">
+          <div class="media-left">
+              <img src="{{dru.imgSrc}}" class="media-object" style="width:100px">
+          </div>
+            <div class="media-body">
+            <h5 class="media-heading"><b>{{dru.title}}</b></h5>
+            <p style="font-size: 12px;">{{dru.kontakt}}<br>{{dru.telefonska}}<br>{{dru.email}}</p>
+        </div>
+      </div>
+    </div>
+    <div class=" col-sm-3 sidenav">
+    </div>
+  </div>
+</div>

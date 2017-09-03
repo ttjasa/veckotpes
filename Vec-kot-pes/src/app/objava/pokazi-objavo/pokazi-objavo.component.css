@@ -1,0 +1,49 @@
+img#profilna {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.glyphicon.glyphicon-chevron-up {
+  font-size: 40px;
+  opacity: 0.40;
+  color: green;
+  cursor: pointer;
+}
+
+.glyphicon.glyphicon-chevron-down {
+  font-size: 40px;
+  opacity: 0.40;
+  color: red;
+  cursor: pointer;
+}
+
+.glyphicon.glyphicon-chevron-up:hover {
+  opacity: 0.70;
+}
+
+.glyphicon.glyphicon-chevron-down:hover {
+  opacity: 0.70;
+}
+
+.label {
+  font-size: 21px;
+  color: black;
+  background-color: #E8F5E9;
+}
+
+table#sg {
+  width: 100%;
+}
+
+td#slika {
+  text-align: left;
+  width: 90%;
+}
+
+td#gl {
+  width: 10%;
+}

@@ -1,0 +1,51 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav " style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+    </div>
+    <div class="col-sm-6 text-left" style="padding:10px;">
+      <div *ngFor="let objava of objaveOmejeno" style="background-color:white;padding:10px;margin-bottom:10px; border-color: #EEEEEE; border-width:1px; border-style: solid;">
+        <table style="width:100%">
+          <tr>
+            <td width="80%">
+              <h3>{{objava.naslov}}</h3></td>
+            <td width="20%" style="text-align:right;"><small><a routerLink="/izzivi/pokazi/{{objava.izziv}}" style="color:#2E7D32;"><span class="glyphicon glyphicon-eye-open"></span>  Oglej si izziv </a></small></td>
+          </tr>
+          </table>
+          <table style="width:100%"><tr>
+          <td width="55px;">
+            <img id="profilna" src="http://164.8.230.126/{{objava.profilna}}" />
+            </td>
+          <td>
+            <a routerLink="/profil/{{objava.uporabnik}}" style="color:#388E3C;">
+              <b>{{objava.imePriimek}}</b></a><br> <small>{{objava.datOddaje | date: 'dd.MM.yy HH:mm'}}</small>
+
+          </td>
+          <td>
+            <p id="ocena" style="text-align: right;"><b>Ocena:</b>
+              <span *ngIf="objava.ocena>=0" class="label label-success">{{objava.ocena}}</span>
+              <span *ngIf="objava.ocena<0" class="label label-danger">{{objava.ocena}}</span>
+            </p>
+          </td>
+        </tr>
+      </table>
+      <p style="margin-top:8px;">{{objava.opis}}</p>
+
+        <div style="text-align:center;">
+          <a routerLink="/objava/{{objava._id}}"><img src="http://164.8.230.126/{{objava.slika}}" style="width:100%;"></a>
+        </div>
+      </div>
+      <div class="text-center" style="margin-bottom:10px;">
+      <a id="pokaziVec" *ngIf="seobstaja" (click)="omejiObjave()" style="color:#43A047"><span class="glyphicon glyphicon-refresh" style="margin-right:10px;"></span>Pokaži več ... </a>
+    </div></div>
+    <div class=" col-sm-2 sidenav text-left" style="background-color:white;border-color: #EEEEEE; border-width:1px; border-style: solid;">
+      <app-lestvica></app-lestvica>
+    </div>
+    <div class=" col-sm-1 sidenav text-left">
+    </div>
+  </div>
+</div>

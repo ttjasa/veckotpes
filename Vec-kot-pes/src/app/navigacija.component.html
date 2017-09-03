@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom:60px;">
+  <div class="container">
+    <a routerLink="/" class="navbar-left brand"><img src="/assets/images/lo1.png"></a>
+    <div *ngIf="prijavljen">
+    <div class="col-sm-5 col-md-5">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input [(ngModel)]="iskalniNiz" type="text" class="form-control" placeholder="Search" name="q" id="srch">
+            <div class="input-group-btn">
+                <button class="btn btn-default" (click)="onIsci()" type="submit" style="height: 30px;"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+     <ul class="nav navbar-nav navbar-right">
+        <li>{{sporocilo}}</li>
+       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/"><span class="glyphicon glyphicon-home"></span> Domov</a></li>
+       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/mojprofil"><span class="glyphicon glyphicon-user"></span> Moj profil</a></li>
+       <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/nastavitve"><span class="glyphicon glyphicon-cog"></span></a></li>
+       <li (click)="onOdjava()"><a><span class="glyphicon glyphicon-log-out"></span></a></li>
+   </ul>
+  </div>
+</div>
+</nav>
+<div class="container" style="height:70px;"></div>

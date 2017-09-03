@@ -1,0 +1,29 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav" style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+        </div>
+    <div class="col-sm-6 text-left" style="background-color:white; border-color: #EEEEEE; border-width:1px; border-style: solid;">
+    <h3  style="font-family:Trebuchet MS;">AKTUALNO</h3>
+    <div class="media" *ngFor="let novica of noviceOmejeno">
+      <div class="media-left">
+        <img class="media-object" style="height:80px;" src="{{novica.imgSrc}}">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading"><a target="_blank" href="{{novica.povezava}}" style="color: #43A047;font-family:Trebuchet MS;">{{novica.title}}</a><small>  {{novica.datObjave}}</small></h4>
+        <small>{{novica.adContent}}</small>
+      </div>
+      <hr>
+    </div>
+    <div class="text-center" style="margin-bottom:10px;">
+    <a id="pokaziVec" *ngIf="seobstaja" (click)="omeji()" style="color:#43A047"><span class="glyphicon glyphicon-refresh" style="margin-right:10px;"></span> Pokaži več ... </a>
+    </div>
+    </div>
+    <div class=" col-sm-3 sidenav">
+    </div>
+  </div>
+</div>

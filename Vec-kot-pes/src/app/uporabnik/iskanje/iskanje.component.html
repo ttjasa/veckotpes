@@ -1,0 +1,36 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav" style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+      </div>
+    <div class="col-sm-6 text-left" style="background-color:white; padding-bottom:10px; padding-top:10px;">
+      <p>Rezultati iskanja za: <i>{{iskalniNiz}}</i> </p>
+      <div class="media" *ngFor="let uporabnik of uporabniki">
+      <div class="media-left">
+      <img id="profilna" class="media-object" src="http://164.8.230.126/{{uporabnik.slika}}" />
+      </div>
+      <div class="media-body">
+      <h4 class="media-heading">
+	  <a *ngIf="uporabnik.uporIme!=prijavljen.uporIme" routerLink="/profil/{{uporabnik.uporIme}}" style="color:#388E3C;">{{uporabnik.ime}} {{uporabnik.priimek}}</a>
+	  <a *ngIf="uporabnik.uporIme==prijavljen.uporIme" routerLink="/mojprofil" style="color:#388E3C;">{{uporabnik.ime}} {{uporabnik.priimek}}</a>
+	  </h4>
+      <small><i>{{uporabnik.kraj}}</i></small>
+      </div>
+      </div>
+    </div>
+    <div class=" col-sm-3 sidenav" style="text-align:left; ">
+      <div style="background-color:white; width:80%; padding:10px;" class="pp">
+      <h4  style="font-family:Trebuchet MS;">PREDLAGANI PRIJATELJI:</h4>
+      <hr>
+        <div *ngFor="let pred of predlagani5" style="margin-bottom: 10px;" class="predlagani">
+          <a  routerLink="/profil/{{pred.uporIme}}" style="color:black;"><img class="pro" src="http://164.8.230.126/{{pred.slika}}">{{pred.ime}} {{pred.priimek}}</a>
+        </div>
+      <a *ngIf="preostali" (click)="omejiNa5()" style="color:#2E7D32;font-size:12px;"><span class="glyphicon glyphicon-refresh"></span> Predlagaj več ...</a>
+    </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav" style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+      </div>
+    <div class="col-sm-6 text-left" style="background-color:white; padding-top:10px; padding-bottom:10px;border-color: #EEEEEE; border-width:1px; border-style: solid;">
+      <h2>  OCENI SVOJE PASME </h2>
+      <hr>
+      <p>Z ocenami lahko bodočim lastnikom pomagaš pri izbiri prave pasme. </p>
+      <div class="alert alert-success" role="alert" *ngIf="sporocilo">{{sporocilo}}</div>
+        <div class="media" *ngFor="let pasmaO of pasmeU; let i = index" style="background-color:#f9fcfb; padding-top:10px; padding-bottom:10px; padding-left:10px;">
+            <h3>{{pasmaO.pasma}}</h3>
+            <table>
+              <tr>
+              <td><label for="velikostInpt">Velikost: </label></td>
+              <td><label class="radio-inline"><input type="radio" name="optradio{{i}}" value="1" [(ngModel)]="pasmaO.Velikost">1</label>
+              <label class="radio-inline"><input type="radio" name="optradio{{i}}" value="2" [(ngModel)]="pasmaO.Velikost">2</label>
+              <label class="radio-inline"><input type="radio" name="optradio{{i}}" value="3" [(ngModel)]="pasmaO.Velikost">3</label>
+              <label class="radio-inline"><input type="radio" name="optradio{{i}}" value="4" [(ngModel)]="pasmaO.Velikost">4</label>
+              <label class="radio-inline"><input type="radio" name="optradio{{i}}" value="5" [(ngModel)]="pasmaO.Velikost">5</label>
+        </tr>
+              <tr>
+              <td><label for="negaInpt">Potreba po negi: </label></td>
+              <td><label class="radio-inline"><input type="radio" name="optradio1{{i}}" value="1"  [(ngModel)]="pasmaO.PotrebaPoNegi">1</label>
+              <label class="radio-inline"><input type="radio" name="optradio1{{i}}" value="2"  [(ngModel)]="pasmaO.PotrebaPoNegi">2</label>
+              <label class="radio-inline"><input type="radio" name="optradio1{{i}}" value="3"  [(ngModel)]="pasmaO.PotrebaPoNegi">3</label>
+              <label class="radio-inline"><input type="radio" name="optradio1{{i}}" value="4"  [(ngModel)]="pasmaO.PotrebaPoNegi">4</label>
+              <label class="radio-inline"><input type="radio" name="optradio1{{i}}" value="5"  [(ngModel)]="pasmaO.PotrebaPoNegi">5</label>
+            </tr>
+            <tr>
+              <td><label for="dlakaInpt">Izpadanje dlake: </label></td>
+              <td><label class="radio-inline"><input type="radio" name="optradio2{{i}}" value="1"   [(ngModel)]="pasmaO.IzpadanjeDlak">1</label>
+              <label class="radio-inline"><input type="radio" name="optradio2{{i}}" value="2" [(ngModel)]="pasmaO.IzpadanjeDlak">2</label>
+              <label class="radio-inline"><input type="radio" name="optradio2{{i}}" value="3" [(ngModel)]="pasmaO.IzpadanjeDlak">3</label>
+              <label class="radio-inline"><input type="radio" name="optradio2{{i}}" value="4" [(ngModel)]="pasmaO.IzpadanjeDlak">4</label>
+              <label class="radio-inline"><input type="radio" name="optradio2{{i}}" value="5" [(ngModel)]="pasmaO.IzpadanjeDlak">5</label>
+        </tr>
+            <tr>
+              <td><label for="druzinskiInpt">Družinski pes: </label></td>
+              <td><label class="radio-inline"><input type="radio" name="optradio3{{i}}" value="1"  [(ngModel)]="pasmaO.DruzinskiPes">1</label>
+              <label class="radio-inline"><input type="radio" name="optradio3{{i}}" value="2" [(ngModel)]="pasmaO.DruzinskiPes">2</label>
+              <label class="radio-inline"><input type="radio" name="optradio3{{i}}" value="3" [(ngModel)]="pasmaO.DruzinskiPes">3</label>
+              <label class="radio-inline"><input type="radio" name="optradio3{{i}}" value="4" [(ngModel)]="pasmaO.DruzinskiPes">4</label>
+              <label class="radio-inline"><input type="radio" name="optradio3{{i}}" value="5" [(ngModel)]="pasmaO.DruzinskiPes">5</label>
+              </tr>
+            <tr>
+              <td><label for="cuvajInpt">Pes čuvaj: </label></td>
+              <td><label class="radio-inline"><input type="radio" name="optradio4{{i}}" value="1" [(ngModel)]="pasmaO.PesCuvaj">1</label>
+              <label class="radio-inline"><input type="radio" name="optradio4{{i}}" value="2" [(ngModel)]="pasmaO.PesCuvaj">2</label>
+              <label class="radio-inline"><input type="radio" name="optradio4{{i}}" value="3" [(ngModel)]="pasmaO.PesCuvaj">3</label>
+              <label class="radio-inline"><input type="radio" name="optradio4{{i}}" value="4" [(ngModel)]="pasmaO.PesCuvaj">4</label>
+              <label class="radio-inline"><input type="radio" name="optradio4{{i}}" value="5" [(ngModel)]="pasmaO.PesCuvaj">5</label>
+              </tr>
+            <tr>
+              <td><label for="ucljivostInpt">Učljivost: </label></td>
+              <td><label class="radio-inline"><input type="radio" name="optradio5{{i}}" value="1" [(ngModel)]="pasmaO.Ucljivost">1</label>
+              <label class="radio-inline"><input type="radio" name="optradio5{{i}}" value="2" [(ngModel)]="pasmaO.Ucljivost">2</label>
+              <label class="radio-inline"><input type="radio" name="optradio5{{i}}" value="3" [(ngModel)]="pasmaO.Ucljivost">3</label>
+              <label class="radio-inline"><input type="radio" name="optradio5{{i}}" value="4" [(ngModel)]="pasmaO.Ucljivost">4</label>
+              <label class="radio-inline"><input type="radio" name="optradio5{{i}}" value="5" [(ngModel)]="pasmaO.Ucljivost">5</label>
+              </tr>
+            <tr>
+              <td><label for="gibanjeInpt">Potreba po gibanju: </label></td>
+              <td><label class="radio-inline"><input type="radio" name="optradio6{{i}}" value="1" [(ngModel)]="pasmaO.PotrebaPoGibanju">1</label>
+              <label class="radio-inline"><input type="radio" name="optradio6{{i}}" value="2" [(ngModel)]="pasmaO.PotrebaPoGibanju">2</label>
+              <label class="radio-inline"><input type="radio" name="optradio6{{i}}" value="3" [(ngModel)]="pasmaO.PotrebaPoGibanju">3</label>
+              <label class="radio-inline"><input type="radio" name="optradio6{{i}}" value="4" [(ngModel)]="pasmaO.PotrebaPoGibanju">4</label>
+              <label class="radio-inline"><input type="radio" name="optradio6{{i}}" value="5" [(ngModel)]="pasmaO.PotrebaPoGibanju">5</label>
+      </tr>
+          </table>
+          <br>
+          <button (click)="onOceni(pasmaO.pasma)" class="btn btn-success">OCENI PASMO </button>
+        </div>
+    </div>
+    <div class=" col-sm-3 sidenav">
+    </div>
+  </div>
+</div>

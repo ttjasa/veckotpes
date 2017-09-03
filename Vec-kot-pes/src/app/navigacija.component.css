@@ -1,0 +1,97 @@
+
+  .navbar-default {
+    background-color: #66bb6a;
+    border-color: #43a047;
+  }
+  .navbar-default .navbar-brand {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-brand:hover,
+  .navbar-default .navbar-brand:focus {
+    color: #c8e6c9;
+  }
+  .navbar-default .navbar-text {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus {
+    color: #c8e6c9;
+  }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    color: #c8e6c9;
+    background-color: #43a047;
+  }
+  .navbar-default .navbar-nav > .open > a,
+  .navbar-default .navbar-nav > .open > a:hover,
+  .navbar-default .navbar-nav > .open > a:focus {
+    color: #c8e6c9;
+    background-color: #43a047;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: #43a047;
+  }
+  .navbar-default .navbar-toggle:hover,
+  .navbar-default .navbar-toggle:focus {
+    background-color: #43a047;
+  }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #ecf0f1;
+  }
+  .navbar-default .navbar-collapse,
+  .navbar-default .navbar-form {
+    border-color: #ecf0f1;
+  }
+  .navbar-default .navbar-link {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-link:hover {
+    color: #c8e6c9;
+  }
+
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: #ecf0f1;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+      color: #c8e6c9;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #c8e6c9;
+      background-color: #43a047;
+    }
+  }
+
+#srch{
+    height: 30px;
+  }
+
+  .navbar-nav > li{
+  margin-left:0px;
+  margin-right:0px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+.glyphicon {
+    font-size: 20px;
+}
+.glyphicon.glyphicon-search {
+    font-size: 10px;
+}
+.navbar-nav > li{
+  padding-left:0px;
+  padding-right:0px;
+}
+.navbar-nav > li{
+  margin-left:0px;
+  margin-right:0px;
+}

@@ -1,0 +1,62 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-1 sidenav" style="text-align: left;">
+    </div>
+    <div class="col-sm-3 text-left" style="background-color:white;">
+      <!--<img class="img-thumbnail" style="height:150px;" src="http://164.8.230.126/{{uporabnik.slika}}">-->
+      <div [style.background-image]="'url(http://164.8.230.126/' + uporabnik.slika + ')'" class="cropcircle"></div>
+      <div class="text-center">
+        <h1>{{uporabnik.ime}} {{uporabnik.priimek}}</h1>
+        <h4>{{uporabnik.uporIme}}, <i>{{uporabnik.kraj}}</i></h4>
+        <p id="opis">{{uporabnik.kratekOpis}} </p>
+      </div>
+      <hr>
+      <div class="media" *ngFor="let pes of uporabnik.psi">
+        <div class="media-left">
+          <img class="media-object" id="profilna" src="http://164.8.230.126/{{pes.slika}}" />
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{pes.ime}}</h4>
+          <small>{{pes.pasma}}</small>
+        </div>
+      </div>
+      <hr>
+      <div class="profile-sidebar">
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li *ngIf="uporabnik.uporIme==prijavljen.uporIme" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a routerLink="/mojprofil" style="font-family:Trebuchet MS; color:grey"><span class="glyphicon glyphicon-user" style="color:#388E3C"></span> PROFIL</a>
+            </li>
+            <li *ngIf="uporabnik.uporIme!=prijavljen.uporIme" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a routerLink="/profil/{{uporabnik.uporIme}}" style="font-family:Trebuchet MS; color:grey"><span class="glyphicon glyphicon-user" style="color:#388E3C"></span> PROFIL</a>
+            </li>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a routerLink="/profil/{{uporabnik.uporIme}}/psi" style="font-family:Trebuchet MS; color:grey"><span class="glyphicon glyphicon-heart" style="color:#388E3C"></span> VEČ O PSIH</a>
+            </li>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a routerLink="/profil/{{uporabnik.uporIme}}/prijatelji" style="font-family:Trebuchet MS; color:grey"><span class="glyphicon glyphicon-sunglasses" style="color:#388E3C"></span> PRIJATELJI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class=" col-sm-6" style="text-align: center;">
+      <div class="container" *ngFor="let pes of uporabnik.psi">
+        <img src="http://164.8.230.126/{{pes.slika}}" alt="Avatar" class="image" style="width:100%">
+        <div class="middle">
+          <div class="text">
+            <h3>{{pes.ime}}</h3>
+            <p><b>Pasma:</b> {{pes.pasma}}</p>
+            <p><b>Datum rojstva:</b> {{pes.datRoj | date:'d.M.y'}}</p>
+            <p><b>Rodovnik:</b> {{pes.imaRodovnik==true ? "DA" : "NE"}}</p>
+            <p id="opis"><b>{{pes.rodovnik=="" ? "" : "Opis: " }}</b>{{ pes.rodovnik}}</p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div class=" col-sm-2 sidenav">
+    </div>
+  </div>
+</div>

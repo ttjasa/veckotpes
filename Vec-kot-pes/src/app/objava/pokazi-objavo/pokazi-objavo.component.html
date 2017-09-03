@@ -1,0 +1,79 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav" style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+    </div>
+    <div class="col-sm-6 text-left" style="padding:10px;">
+      <div style="background-color:white;padding:10px;margin-bottom:10px; border-color: #EEEEEE; border-width:1px; border-style: solid;">
+        <table style="width:100%">
+          <tr>
+            <td width="80%">
+              <h3>{{objava.naslov}}</h3></td>
+            <td width="20%" style="text-align:right;"><small><a routerLink="/izzivi/pokazi/{{objava.izziv}}" style="color:#2E7D32;"><span class="glyphicon glyphicon-eye-open"></span> Oglej si izziv </a></small></td>
+          </tr>
+          </table>
+          <table style="width:100%"><tr>
+          <td width="55px;">
+            <img id="profilna" src="http://164.8.230.126/{{objava.profilna}}" />
+            </td>
+          <td>
+            <a routerLink="/profil/{{objava.uporabnik}}" style="color:#388E3C;">
+              <b>{{objava.imePriimek}}</b></a><br> <small>{{objava.datOddaje | date: 'dd.MM.yy HH:mm'}}</small>
+
+          </td>
+          <td>
+            <!--<p id="ocena" style="text-align: right;"><b>Ocena:</b>
+              <span *ngIf="objava.ocena>=0" class="label label-success">{{objava.ocena}}</span>
+              <span *ngIf="objava.ocena<0" class="label label-danger">{{objava.ocena}}</span>
+            </p>-->
+          </td>
+        </tr>
+      </table>
+      <p style="margin-top:8px;">{{objava.opis}}</p>
+
+        <div style="text-align:center;">
+          <table id="sg">
+            <tr>
+              <td id="gl">
+                <span (click)="onGlasuj(true)" class=" glyphicon glyphicon-chevron-up"></span>
+                <br>
+                <br>
+                <span><span class="label label-default">{{objava.ocena}}</span>
+                </span>
+                <br>
+                <br>
+                <span (click)="onGlasuj(false)" class=" glyphicon glyphicon-chevron-down"></span>
+              </td>
+              <td id="slika">
+                <img src="http://164.8.230.126/{{objava.slika}}" style="width:89%;">
+              </td>
+            </tr>
+          </table>
+          <br><br>
+          <div class="input-group" style="width:80%;text-align:center;margin-left:10%">
+            <input type="text" class="form-control" [(ngModel)]="novKomentar.komentar">
+            <span class="input-group-btn">
+          <button class="btn btn-default btn-success" type="button" (click)="onKomentiraj()">
+
+            <span class="glyphicon glyphicon-comment"></span> KOMENTIRAJ</button>
+          </span>
+          </div>
+          <div class="alert alert-danger" role="alert" *ngIf="napaka">{{napaka}}</div>
+        </div>
+        <div style="margin-top:8px;background-color:#f4f9f5; width:95%; margin-left:2%">
+          <div *ngFor="let komentar of objava.komentarji" style="padding:5px;padding-bottom:0px">
+            <a routerLink="/profil/{{komentar.uporabnik}}" style="color:#388E3C;">{{komentar.imePriimek}}</a>, <small><i>{{komentar.datOddaje | date: 'dd.MM.yy HH:mm'}}</i></small>
+            <p> {{komentar.komentar}} </p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" col-sm-3 sidenav">
+    </div>
+  </div>
+</div>

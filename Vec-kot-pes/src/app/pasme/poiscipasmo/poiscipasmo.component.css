@@ -1,0 +1,17 @@
+.panel-default > .panel-heading {
+  color: white;
+  background-color: #66bb6a;
+  border-color: #ddd;
+}
+
+.pasmaPnl
+{
+  width: 120px;
+  float:left;
+}
+.crta hr {
+  border: none;
+  height: 3px;
+  color: #388E3C;
+  background-color: #388E3C;
+}

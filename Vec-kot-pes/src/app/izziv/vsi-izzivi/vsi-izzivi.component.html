@@ -1,0 +1,22 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav" style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+    </div>
+    <div class="col-sm-6 text-left" style="background-color:white;padding:10px; ">
+        <img src="assets/images/{{kategorija}}.jpg" style="width:100%;margin-bottom:6px;">
+      <div *ngFor="let izziv of izzivi" class="izziviCl" routerLink="/izzivi/pokazi/{{izziv._id}}">
+          <h5 style="color:#388E3C;text-weight:bold;"><a routerLink="/izzivi/pokazi/{{izziv._id}}" style="text-transform: uppercase;margin-right:5px;color:#388E3C;text-weight:bold;font-size:22px;">{{izziv.naslov}}</a><small><i>{{izziv.datOddaje | date: 'dd. MMM yyyy '}} - {{izziv.datPoteka | date: 'dd. MMM yyyy '}}</i></small></h5>
+          <p>{{izziv.opis}}</p>
+          <hr>
+      </div>
+    </div>
+    <div class=" col-sm-3 sidenav">
+      <button *ngIf="posebni" routerLink="/izzivi/dodajIzziv" class="btn btn-success" style="width: 150px;"><span class="glyphicon glyphicon-plus"></span>  Dodaj nov izziv</button>
+
+    </div>
+  </div>
+</div>

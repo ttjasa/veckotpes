@@ -1,0 +1,15 @@
+.slikaUp {
+  margin: auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+hr {
+  border: none;
+  height: 3px;
+  color: #388E3C;
+  background-color: #388E3C;
+}

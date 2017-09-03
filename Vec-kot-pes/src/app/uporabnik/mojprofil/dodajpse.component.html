@@ -1,0 +1,78 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-2 sidenav" style="text-align: left;">
+      <div class="profile-sidebar">
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <a routerLink="/nastavitve" style="font-family:Trebuchet MS; color:grey"><span class="glyphicon glyphicon-cog" style="color:#388E3C"></span> UREDI PROFIL</a>
+            </li>
+            <li  routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/dodajpse" style="font-family:Trebuchet MS; color:grey"><span class="glyphicon glyphicon-heart" style="color:#388E3C"></span> UPRAVLJAJ S PSI</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+    <div class="col-sm-6 text-left" style="background-color:white; margin-left:10px; padding-top:10px; padding-bottom:15px; border-color: #EEEEEE; border-width:1px; border-style: solid;">
+      <h3  style="font-family:Trebuchet MS;"> MOJI PSI </h3>
+      <div class="media" *ngFor="let pes of uporabnik.psi">
+      <div class="media-left">
+        <img class="media-object" style="height:60px;" src="http://164.8.230.126/{{pes.slika}}">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{pes.ime}}</h4>
+        <small>{{pes.pasma}}, {{pes.datRoj | date : 'dd.MM.yy'}}</small>
+        <p>{{pes.rodovnik}} </p>
+      </div>
+      <div class="media-left">
+        <button class="btn btn-danger" (click)="onIzbrisi(pes._id)">Izbriši</button>
+      </div>
+      <hr>
+  </div>
+  <h3  style="font-family:Trebuchet MS;"> DODAJ NOVEGA PSA </h3>
+      <div class="form-group">
+        <label for="prikaznaInpt">Prikazna slika: </label>
+        <small>Velikost ne sme presegati 1MB</small>
+        <input #prikaznaFile type="file" class="form-control" id="prikaznaInpt" name="prikazna" style="margin-left:10%; width:80%" required>
+
+      </div>
+      <div class="form-group">
+        <label for="imeInpt">Ime: </label>
+        <input [(ngModel)]="pes.ime" type="text" class="form-control" id="imeInpt"  style="margin-left:10%; width:80%" required>
+      </div>
+      <div class="form-group">
+        <label for="pasmeInpt">Pasma: </label>
+      <!--  <input [(ngModel)]="pes.pasma" type="text" class="form-control" id="pasmaInpt"  style="margin-left:10%; width:80%"> -->
+        <select name="pasmeInpt" class="form-control" id="pasmaInpt" style="margin-left:10%; width:80%" [(ngModel)]="pes.pasma" required>
+          <option *ngFor="let pas of pasme" [value]="pas" ngDefaultControl>{{pas}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="krajInpt">Rodovnik: </label>
+        <label class="radio-inline"><input type="radio"  [(ngModel)]="pes.imaRodovnik" value="true" name="optradio" required>DA</label>
+        <label class="radio-inline"><input type="radio" [(ngModel)]="pes.imaRodovnik" value="false" name="optradio" required>NE</label>
+      </div>
+      <div class="form-group">
+        <label for="datRojInpt">Datum rojstva: </label>
+        <input [(ngModel)]="pes.datRoj" type="date" class="form-control" id="datRojInpt"  style="margin-left:10%; width:80%" required>
+      </div>
+      <div class="form-group">
+        <label for="kratekOpisInpt">Kratek opis: </label>
+        <textarea [(ngModel)]="pes.rodovnik" class="form-control" id="kratekOpisInpt"  style="margin-left:10%; width:80%" required></textarea>
+      </div>
+
+      <br>
+      <button (click)="onDodajPsa()"  class="btn btn-success"  style="width: 200px;">DODAJ PSA</button>
+      <br><br>
+      <div class="alert alert-danger" role="alert" *ngIf="napaka">{{napaka}}</div>
+    </div>
+
+    <div class=" col-sm-3 sidenav">
+
+    </div>
+  </div>
+</div>

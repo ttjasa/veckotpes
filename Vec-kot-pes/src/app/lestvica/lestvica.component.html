@@ -1,0 +1,21 @@
+<br>
+<h4 style="font-family:Trebuchet MS;">LESTVICA TOP 10:</h4>
+<hr>
+<div class="media" *ngFor="let uporabnikT of topUs; let i = index">
+  <a routerLink="/profil/{{uporabnikT.uporIme}}">
+    <tr>
+      <td style="width:20px;">
+        <span style="font-size: 18px; color:#388E3C;"><b>{{i+1.}}</b></span>
+      </td>
+      <td>
+        <div class="media-left">
+          <img class="slikaUp" src="http://164.8.230.126/{{uporabnikT.slika}}">
+        </div>
+        <div class="media-body" style="font-family:Trebuchet MS;">
+          <span style="color:black;">{{uporabnikT.ime}} {{uporabnikT.priimek}}<br></span>
+          <span style="font-size:13px; color:#388E3C;">{{uporabnikT.opravljene.length}}</span>
+        </div>
+      </td>
+    </tr>
+  </a>
+</div>

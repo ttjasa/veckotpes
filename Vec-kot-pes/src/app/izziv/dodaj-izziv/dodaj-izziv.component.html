@@ -1,0 +1,52 @@
+<app-navigacija></app-navigacija>
+<div class="container-fluid text-center">
+
+  <div class="row content">
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-2 sidenav" style="text-align: left; padding-left: 55px;">
+      <levanav></levanav>
+    </div>
+    <div class="col-sm-6 text-left" style="background-color:white; padding-bottom:10px;">
+      <h2>DODAJ NOV IZZIV</h2>
+      <div class="form-group">
+        <label for="naslovInpt">Naslov: </label>
+        <input [(ngModel)]="novIzziv.naslov" type="text" class="form-control" id="naslovInpt"  style="margin-left:10%; width:80%" required>
+      </div>
+      <div class="form-group">
+        <label for="katInpt">Kategorija: </label>
+        <select name="katInpt" class="form-control" id="katInpt" style="margin-left:10%; width:80%" [(ngModel)]="novIzziv.kategorija" required>
+          <option value="Trikci">Trikci</option>
+          <option value="Lokacija">Lokacija</option>
+          <option value="Ostalo">Ostalo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="kratekOpisInpt">Opis: </label>
+        <textarea [(ngModel)]="novIzziv.opis" class="form-control" id="kratekOpisInpt"  style="margin-left:10%; width:80%" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="datPotInpt">Datum poteka: </label>
+        <input [(ngModel)]="novIzziv.datPoteka" type="date" class="form-control" id="datPotInpt"  style="margin-left:10%; width:80%" required>
+      </div>
+      <br>
+
+          <div class="alert alert-danger" role="alert" *ngIf="napaka">{{napaka}}</div>
+
+            <div *ngIf="novIzziv.kategorija==='Lokacija'" class="text-right" style="margin-right:10%;"><button (click)="onDodajLokacijo()" class="btn btn-success"><span class="glyphicon glyphicon-map-marker"></span> POKAŽI ZEMLJEVID</button></div>
+            <div *ngIf="mapshw"> <div  *ngIf="mapshw" class="form-group">
+              <label  *ngIf="mapshw" for="srcLok">Lokacija: <small>(vpiši naslov ali označi na zemljevidu)</small></label>
+              <input  *ngIf="mapshw" placeholder="Išči naslov ..."  type="text" class="form-control" #search [formControl]="searchControl">
+            </div>
+            <sebm-google-map [latitude]="latitude" [longitude]="longitude"  [scrollwheel]="true" [zoom]="zoom" (mapClick)="updateDiv($event)">
+              <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude"></sebm-google-map-marker>
+            </sebm-google-map>
+          </div>
+
+          <button (click)="onDodajIzziv()"  class="btn btn-success"  style="width: 200px;margin-top:10px;">DODAJ IZZIV</button>
+    </div>
+    <div class=" col-sm-3 sidenav">
+
+    </div>
+  </div>
+</div>
